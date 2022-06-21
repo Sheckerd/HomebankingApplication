@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#clientes {
+    width:70%;
+}
+
+@media (max-width:600px){
+    
+    main {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #clientes {
+        width: 100%;
+       
+    }
+   
+    
+    #Json {
+
+       
+        width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px){
+    main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    h1 {
+        text-align: center;
+    }
+    #clientes {
+        width: 100%;
+       
+    }
+    #Json {
+       
+       
+        width: 100%;
+    }
+}

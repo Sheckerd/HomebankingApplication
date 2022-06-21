@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="icon" type="image/png" href="./design/images/icons/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="./design/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./design/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./design/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="./design/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="./design/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="./design/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="./design/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="./design/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="./design/css/main.css">
+	<link rel="stylesheet" type="text/css" href="./design/css/util.css">
+	<link rel="stylesheet" href="./design/css/index.css">
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css"
+		rel="stylesheet">
+
+</head>
+
+<body>
+	<div id="app">
+		<div class="welcomePage" style="background-image: url(./design/images/bank\ background.jpg);">
+
+			<header>
+				<nav class="w-75 bg-light bg-gradient m-auto opacity-75">
+					<div class="container justify-content-center">
+						<div class="row justify-content-between  align-items-center">
+							<div class="col-sm-4">
+								<ul class="d-flex justify-content-between pt-1">
+									<li><img src="./design/images/icons/instagram-seeklogo.com.svg" alt="" width="40">
+									</li>
+									<li><img src="./design/images/icons/twitter-black-shape-svgrepo-com.svg" width="40"
+											alt=""></li>
+									<li><img src="./design/images/icons/linkedin-svgrepo-com.svg" alt="" width="40">
+									</li>
+									<li><img src="./design/images/icons/youtube-svgrepo-com.svg" alt="" width="45"></li>
+								</ul>
+
+							</div>
+							<div class="col-sm-4">
+
+							</div>
+							<div class="col-sm-4">
+								<ul class="d-flex justify-content-between">
+									<li><strong>D-Bank</strong></li>
+									<li><strong>Home Banking</strong></li>
+									<li><strong>Contact</strong></li>
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+				</nav>
+			</header>
+
+
+		</div>
+
+
+
+
+
+
+		<main>
+
+
+
+
+
+
+			<section>
+
+				<div class="" style="background-image: url('./design/images/bg-01.jpg');">
+
+					<div class="limiter " v-show="formButton == true">
+						<div class="container-login100" style="background-image: url('./design/images/bg-01.jpg');">
+							<div class="wrap-login100">
+								<form class="login100-form validate-form" @submit.prevent="postLogin">
+									<span class="login100-form-logo">
+										<i class=""><img src="./design/images/patito.png" width="200" alt=""></i>
+									</span>
+
+									<span class="login100-form-title p-b-34 p-t-27">
+										Sign in
+									</span>
+
+									<div class="wrap-input100 validate-input" data-validate="Enter username">
+										<input class="input100" type="text" name="username" placeholder="Username"
+											v-model="mail">
+										<span class="focus-input100" data-placeholder="&#xf207;"></span>
+									</div>
+
+									<div class="wrap-input100 validate-input" data-validate="Enter password">
+										<input class="input100" type="password" name="pass" placeholder="Password"
+											v-model="password">
+										<span class="focus-input100" data-placeholder="&#xf191;"></span>
+									</div>
+
+
+									<div class="contact100-form-checkbox">
+										<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+										<label class="label-checkbox100" for="ckb1">
+											Remember me
+										</label>
+
+									</div>
+
+									<div class="container-login100-form-btn">
+										<button class="login100-form-btn" type="submit">
+											Login
+										</button>
+									</div>
+
+									<div class="d-flex justify-content-center mt-5">
+
+										
+										<button class="btn btn-warning" v-on:click="toggleFormButton()">
+											Register
+	
+										</button>
+
+
+									</div>
+
+								
+									
+
+
+								</form>
+								
+							</div>
+						</div>
+
+					</div>
+
+
+					<div class="limiter">
+						<div class="container-login100" v-show="formButton == false" >
+							<div class="wrap-login100">
+								<form class="login100-form validate-form" @submit.prevent="postRegistration">
+									<span class="login100-form-logo">
+										<i class=""><img src="./design/images/patito.png" width="200" alt=""></i>
+									</span>
+
+									<span class="login100-form-title p-b-34 p-t-27">
+										Sign up
+									</span>
+
+									<div class="wrap-input100 validate-input" data-validate="Enter First Name">
+										<input class="input100" type="text" name="firstName"
+											placeholder="Enter First Name" v-model="firstName">
+										<span class="focus-input100" data-placeholder=""></span>
+									</div>
+
+									<div class="wrap-input100 validate-input" data-validate="Enter Last Name">
+										<input class="input100" type="text" name="lastName"
+											placeholder="Enter Last Name" v-model="lastName">
+										<span class="focus-input100" data-placeholder=""></span>
+									</div>
+
+									<div class="wrap-input100 validate-input" data-validate="register username ">
+										<input class="input100" type="text" name="regusername"
+											placeholder="Enter Username" v-model="regusername">
+										<span class="focus-input100" data-placeholder=""></span>
+									</div>
+
+									<div class="wrap-input100 validate-input" data-validate="register password">
+										<input class="input100" type="text" name="regpass" placeholder="Enter Password"
+											v-model="regpassword">
+										<span class="focus-input100" data-placeholder=""></span>
+									</div>
+
+
+
+									<div class="container-login100-form-btn mt-5">
+										<button class="login100-form-btn mb-4" type="submit">
+											Register
+										</button>
+									</div>
+									<div class="d-flex justify-content-center">
+									<button class="btn btn-warning" v-on:click="toggleFormButton()">
+										Go Back
+
+									</button>
+								</div>
+
+
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+	</div>
+	</section>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+	</script>
+	<script
+		src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js">
+	</script>
+
+	<script src="./design/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="./design/vendor/animsition/js/animsition.min.js"></script>
+	<script src="./design/vendor/bootstrap/js/popper.js"></script>
+	<script src="./design/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+	<script src="./design/vendor/select2/select2.min.js"></script>
+	<script src="./design/vendor/daterangepicker/moment.min.js"></script>
+	<script src="./design/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="./design/vendor/countdowntime/countdowntime.js"></script>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://unpkg.com/vue@3"></script>
+	<script src="./design/js/index.js"></script>
+
+
+
+</body>
+
+</html>

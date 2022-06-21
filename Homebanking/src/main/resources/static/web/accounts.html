@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Accounts</title>
+</head>
+
+<body>
+  <div id="app">
+
+
+    <header class="">
+      <nav class="navbar">
+        <div class="d-flex justify-content-start w-25 border border-warning border-3">
+          <img src="./assets/patito.png" alt="" width="100" height="90" class="align-text-center">
+          <h2 class="text-warning fs-1 fst-italic d-flex align-items-center">D-Banking</h2>
+        </div>
+        <div class="w-25 d-flex justify-content-around">
+          <button type="button" class="btn btn-outline-warning background-color: btn-white border-3 fw-bolder text-dark"
+            id="createButton" v-on:click="postCreateAccount">Create
+            Account</button>
+          <button type="button" class="btn btn-outline-warning background-color: btn-white border-3 fw-bolder text-dark"
+            id="button" v-on:click="postLogout">Sign Out</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="d-flex ">
+      <div class="d-flex flex-column  p-3 text-white" id="sidebar" style="width: 20%; background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+        background-image: -webkit-linear-gradient(top, rgb(117, 121, 255), rgb(178, 36, 239)) ;">
+        <h3 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto fw-bolder"></h3>
+        <span class="fs-4 text-warning fw-bolder">HomeBankingApp</span>
+        <ul class="nav nav-pills flex-column mb-auto">
+
+          <li class="nav-item dropdown mt-5" >
+            <a href="#" class="nav-link dropdown-toggle active text-white fw-bolder fs-5" aria-current="page"
+              id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="background-color:transparent">
+              <img src="./assets/accounts.png" class="bi me-2 icons p-1"
+                style="background-color:gold; border-radius: 1ch;" width="50" height="50"></img>
+              Accounts
+            </a >
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+              <li><a class="dropdown-item" :href="'./account.html?id='+account.id" v-for="account in accounts">{{account.number}}</a></li>
+          
+              
+            </ul>
+          </li>
+         
+          <li class="mt-4">
+            <a href="./cards.html" class="nav-link active text-white fw-bolder fs-5" aria-current="page"
+              style="background-color:transparent">
+
+              <img src="./assets/credit-card.png" class="bi me-2 icons p-1"
+                style="background-color:gold; border-radius: 1ch;" width="50" height="50"></img>
+              Cards
+            </a></li>
+          </li>
+          <li class="mt-4">
+            <a href="./transfers.html" class="nav-link active text-white fw-bolder fs-5" aria-current="page"
+              style="background-color:transparent">
+              <img src="./assets/proteger.png" class="bi me-2 icons p-1"
+                style="background-color:gold; border-radius: 1ch;" width="50" height="50"></img>
+              Transfers
+            </a></li>
+          </li>
+          <li class="mt-4">
+            <a href="./loan-application.html" class="nav-link active text-white fw-bolder fs-5" aria-current="page"
+              style="background-color:transparent">
+              <img src="./assets/celu.png" class="bi me-2 icons p-1" style="background-color:gold; border-radius: 1ch;"
+                width="50" height="50"></img>
+              Loans
+            </a>
+          </li>
+          </li>
+        </ul>
+        <hr>
+
+      </div>
+      <div>
+
+      </div>
+      <div class="d-flex flex-column w-100">
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item" v-for="(account, index) in accounts" :class="{active: index == 0}">
+              <div class="d-flex">
+                <div class="card" id="cardaccount">
+                  <div class="card-header bg-transparent text-dark" style="border-color:black">{{current.name}}
+                    {{current.apellido}}</div>
+                  <div class="card-body text-dark">
+                    <h5 class="card-title text-dark">{{account.number}}</h5>
+                    <p class="card-text text-dark">Your Balance: <strong>${{account.balance}}</strong>
+                    </p>
+                  </div>
+                  <div class="card-footer bg-transparent text-dark " style="border-color:black">Creatio Date: {{account.creationDate}}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+
+        <div id="container">
+          <h2 class="text-info text-center">Loans</h1>
+            <table class="table background-color: white" id="loantable">
+              <thead class="">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Amount</th>
+                  <th>Payments</th>
+
+                </tr>
+              </thead>
+              <tbody v-for="loan in loans">
+                <tr>
+                  <th style="background-color:white;">{{loan.idClientLoan}}</th>
+                  <td>{{loan.name}}</td>
+                  <td>{{loan.amount}}</td>
+                  <td>{{loan.payment}}</td>
+
+                </tr>
+
+              </tbody>
+            </table>
+
+            <button type="button" class="btn btn-outline-warning background-color: btn-white border-3 fw-bolder">
+              <a href="./loan-application.html" class="text-dark" id="applyButton">
+                Apply for a Loan
+              </a>
+            </button>
+
+
+
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <img src="./design/images/Jake.png" alt="" width="250" id="jake">
+    </footer>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="./manager/accounts.js"></script>
+
+</body>
+
+</html>
