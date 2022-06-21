@@ -18,13 +18,13 @@ Vue.createApp({
 
 
     created() {
-        axios.get("http://localhost:8080/api/clients/current/accounts")
+        axios.get("/api/clients/current/accounts")
             .then(datos => {
                 this.accounts = datos.data
                 this.accounts.sort((a, b) => a.id - b.id)
 
             }),
-            axios.get("http://localhost:8080/api/loans")
+            axios.get("/api/loans")
             .then(datos => {
                 this.loans = datos.data
                 this.loans.sort((a, b) => a.id - b.id)
@@ -40,13 +40,13 @@ Vue.createApp({
         postLogout() {
             axios.post('/api/logout').then(response => {
                 console.log('signed out!!!')
-                window.location.href = "http://localhost:8080/web/index.html"
+                window.location.href = "/web/index.html"
             })
         },
 
         postLoan() {
             console.log({idLoan: this.idLoan, amount: this.amount, payments: this.payments, destinationAccount: this.destinationAccount })
-            axios.post('http://localhost:8080/api/loans', {idLoan: this.idLoan, amount: this.amount, payments: this.payments, destinationAccount: this.destinationAccount })
+            axios.post('/api/loans', {idLoan: this.idLoan, amount: this.amount, payments: this.payments, destinationAccount: this.destinationAccount })
                 .then(response => {
                     console.log("Loan complete")
                 })

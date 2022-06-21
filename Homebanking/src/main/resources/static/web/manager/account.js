@@ -16,7 +16,7 @@ Vue.createApp({
 
         const urlParams = new URLSearchParams(window.location.search);
         const myParam  = urlParams.get('id');
-        axios.get(`http://localhost:8080/api/accounts/${myParam}`)
+        axios.get(`/api/accounts/${myParam}`)
         .then(datos => {
             this.transactions  = datos.data.transactions;
         
@@ -26,7 +26,7 @@ Vue.createApp({
             }),
         
       
-        axios.get(`http://localhost:8080/api/clients/current`)
+        axios.get(`/api/clients/current`)
         .then(datos =>{
             this.accounts = datos.data.accounts
                 
@@ -43,7 +43,7 @@ Vue.createApp({
         postLogout(){
             axios.post('/api/logout').then(response => {
                 console.log('signed out!!!')
-                window.location.href = "http://localhost:8080/web/index.html"
+                window.location.href = "/web/index.html"
             }
                 )
         }
