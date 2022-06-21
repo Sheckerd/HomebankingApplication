@@ -37,7 +37,7 @@ public class CardController {
     @PatchMapping("/cards/{id}")
     public ResponseEntity<Object> deleteCard (@PathVariable Long id, Authentication authentication){
         Client client = clientService.getClientByEmail(authentication.getName());
-        Card card = cardRepository.getById(id);
+        Card card = cardService.getCard(id);
 
         if(card.isActiveCard()){
             card.setActiveCard(false);
