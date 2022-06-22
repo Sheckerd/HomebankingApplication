@@ -26,7 +26,7 @@ Vue.createApp({
             }),
         
       
-        axios.get(`/api/clients/current`)
+        axios.get('/api/clients/current')
         .then(datos =>{
             this.accounts = datos.data.accounts
                 

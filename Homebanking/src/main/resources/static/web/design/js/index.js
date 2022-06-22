@@ -35,7 +35,7 @@ const app = Vue.createApp({
             .then(response => {
                 console.log('signed in!!!')
 
-            window.location.href = "http://localhost:8080/web/accounts.html"
+            window.location.href = '/web/accounts.html'
         })
             
             
@@ -53,7 +53,7 @@ const app = Vue.createApp({
             })    
                 
             .then(response=> 
-                window.location.href = "http://localhost:8080/web/accounts.html"
+                window.location.href = '/web/accounts.html'
                 )
               
                 })

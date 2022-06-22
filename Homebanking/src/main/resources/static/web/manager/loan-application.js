@@ -18,13 +18,13 @@ Vue.createApp({
 
 
     created() {
-        axios.get("/api/clients/current/accounts")
+        axios.get('/api/clients/current/accounts')
             .then(datos => {
                 this.accounts = datos.data
                 this.accounts.sort((a, b) => a.id - b.id)
 
             }),
-            axios.get("/api/loans")
+            axios.get('/api/loans')
             .then(datos => {
                 this.loans = datos.data
                 this.loans.sort((a, b) => a.id - b.id)

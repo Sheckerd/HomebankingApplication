@@ -11,7 +11,7 @@ Vue.createApp({
     },
 
     created() {
-     axios.get("http://localhost:8080/rest/clients")
+     axios.get('http://localhost:8080/rest/clients')
      .then(datos => {
          this.clients = datos.data._embedded.clients
          this.Json = datos.data
@@ -21,7 +21,7 @@ Vue.createApp({
 
     methods: {
         postClient(){
-            axios.post("http://localhost:8080/rest/clients", {
+            axios.post('http://localhost:8080/rest/clients', {
                name :  this.nombres,
                apellido : this.apellidos,
                email : this.mail

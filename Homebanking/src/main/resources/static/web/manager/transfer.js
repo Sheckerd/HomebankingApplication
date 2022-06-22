@@ -19,7 +19,7 @@ Vue.createApp({
 
 
     created() {
-        axios.get("/api/clients/current/accounts")
+        axios.get('/api/clients/current/accounts')
             .then(datos => {
                 this.accounts = datos.data
                 this.accounts.sort((a, b) => a.id - b.id)
@@ -35,7 +35,7 @@ Vue.createApp({
         },
 
         postTransaction() {
-            axios.post("/api/transactions",
+            axios.post('/api/transactions',
                     `amount=${this.amount}&description=${this.description}&originAccountNumber=${this.originAccountNumber}&destinyAccountNumber=${this.destinyAccountNumber}`)
                 
                 .catch(error => {
